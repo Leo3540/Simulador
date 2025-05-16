@@ -46,7 +46,18 @@
           <button class="Posição1">DESLIGAR</button>
         </div>
       </div>
-      <div class="PainelBypassGeral"></div>
+      <div class="PainelBypassGeral">
+        <button class="Bypassgeral">BY-PASS GERAL</button>
+        <button class="Transferbypass">TRANSFERIR PARA BY-PASS</button>
+        <button class="Retorn">RETORNA PARA CARGA PROTEGIDA</button>
+        <div class="Seletor">
+          <span class="TraçoSeletor"></span>
+          <span class="T1">A</span>
+          <span class="T2">B</span>
+          <span class="T1linha"></span>
+          <span class="T2linha"></span>
+        </div>
+      </div>
       <div class="IHM">
         <div class="power-bar">
           <div class="power-bar-fill"></div>
@@ -160,6 +171,14 @@
             <img src="ACUMULADOR.png" class="imagem-destaque" />
           </div>
         </div>
+        <div class="Typebypass">
+            <h1>BYPASS TYPE</h1>
+            <h2>STOP</h2>
+            <h3>/ RUN</h3>
+        </div>
+        <div class="StatusMode">
+            <h1>LOCAL</h1>
+        </div>
         <div class="Mode">
           <span>MODE</span>
           <h1>PROG. SWITCH</h1>
@@ -167,15 +186,6 @@
           <h3>BYPASS</h3>
           <h4>HMI</h4>
           <h5>SECURED</h5>
-          <div class="Typebypass">
-            <span>BYPASS TYPE</span>
-            <h1>STOP</h1>
-            <h2>/ RUN</h2>
-          </div>
-          <div class="StatusMode">
-            <h1>HMI MODE</h1>
-            <h2>LOCAL</h2>
-          </div>
         </div>
       </div>
     </div>
@@ -312,8 +322,6 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
-
-    
     </script>
   </body>
 </html>
