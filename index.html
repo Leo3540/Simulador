@@ -180,19 +180,16 @@
       </div>
     </div>
     <script>
-      // Rotação da seletora
 document.addEventListener("DOMContentLoaded", function () {
   const seletora = document.querySelector(".Seletora")
 
-  // Mapeia ângulos de rotação para cada botão
   const posicoes = {
     Posição4: 0, // CARGA PROTEGIDA
     Posição3: -40, // CONTROLE IHM
     Posição2: -100, // BY-PASS
-    Posição1: -150, // DESLIGAR
+    Posição1: -160, // DESLIGAR
   }
 
-  // Mapeia qual título deve ficar verde para cada botão
   const modos = {
     Posição4: "h5", // SECURED
     Posição3: "h4", // HMI
@@ -209,18 +206,99 @@ document.addEventListener("DOMContentLoaded", function () {
       // Atualiza as cores dos elementos na <div class="Mode">
       const modeDiv = document.querySelector(".Mode")
       const tags = modeDiv.querySelectorAll("h2, h3, h4, h5")
-
       tags.forEach((tag) => {
-        tag.style.color = "gray" // deixa todas cinza
+        tag.style.color = "gray"
       })
 
       const destaque = modeDiv.querySelector(modos[classe])
       if (destaque) {
-        destaque.style.color = "green" // destaca a tag correta
+        destaque.style.color = "green"
+      }
+
+      // Ativa ou desativa o botão ".Contr"
+      const botaoContr = document.querySelector(".Contr")
+      if (classe === "Posição3") {
+        botaoContr.style.pointerEvents = "auto"
+        botaoContr.style.opacity = "1"
+        botaoContr.style.cursor = "pointer"
+      } else {
+        botaoContr.style.pointerEvents = "none"
+        botaoContr.style.opacity = "0.6"
+        botaoContr.style.cursor = "not-allowed"
+      }
+
+      // Exibe popup se for a posição 1 (DESLIGAR)
+      if (classe === "Posição1") {
+        mostrarPopup()
       }
     })
   })
+
+  // ✅ Função para mostrar o popup
+  function mostrarPopup() {
+    if (document.querySelector(".popup-aviso")) return // já existe
+
+    const popup = document.createElement("div")
+    popup.className = "popup-aviso"
+    popup.style.position = "fixed"
+    popup.style.width = "10cm"
+    popup.style.height = "6cm"
+    popup.style.top = "50%"
+    popup.style.left = "50%"
+    popup.style.transform = "translate(-50%, -50%)"
+    popup.style.backgroundColor = "white"
+    popup.style.border = "2px solid red"
+    popup.style.zIndex = "9999"
+    popup.style.padding = "1rem"
+    popup.style.color = "red"
+    popup.style.fontWeight = "bold"
+    popup.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)"
+    popup.style.position = "fixed"
+
+    popup.innerHTML = `
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="fechar-popup" style="background:none;border:none;font-size:18px;cursor:pointer;">✖</button>
+      </div>
+      <div style="text-align: center; margin-top: -10px;">
+        <h2>⚠️ WARNING</h2>
+        <p>If you press on <strong>OFF CONFIRMATION</strong> button for 5s, all the bypass breakers will open and</p>
+        <p><strong>THE LOAD WILL NOT BE SUPPLIED ANYMORE</strong></p>
+        <p>Otherwise, set program switch on <strong>BY-PASS</strong>.</p>
+      </div>
+    `
+
+    document.body.appendChild(popup)
+
+    document.querySelector(".fechar-popup").addEventListener("click", function () {
+      popup.remove()
+    })
+  }
+
+  // ✅ Pressionar por 5 segundos marca os checkboxes
+  const btnDesligar = document.querySelector(".ConfimaçãoDesligar")
+  let timerPressiona
+
+  btnDesligar.addEventListener("mousedown", function () {
+    timerPressiona = setTimeout(() => {
+      const checkboxes = ["QD1", "QD2"]
+      checkboxes.forEach((id) => {
+        const checkbox = document.getElementById(id)
+        if (checkbox) {
+          checkbox.checked = true
+        }
+      })
+    }, 5000)
+  })
+
+  btnDesligar.addEventListener("mouseup", function () {
+    clearTimeout(timerPressiona)
+  })
+
+  btnDesligar.addEventListener("mouseleave", function () {
+    clearTimeout(timerPressiona)
+  })
 })
+
 // Atualização da hora
 function atualizarHora() {
   const agora = new Date()
@@ -234,6 +312,8 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
+    
     </script>
   </body>
 </html>
