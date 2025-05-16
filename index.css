@@ -7,8 +7,6 @@ html,
 body {
   overflow: auto;
   touch-action: auto;
-}
-body {
   position: relative;
   margin: 0;
   height: 100vh;
@@ -382,7 +380,7 @@ body {
   font-family: sans-serif;
   background: gray;
   font-weight: bolder;
-  color: #d6d8da;
+  color: #d6d8da;  
 }
 .Posição4 {
   position: absolute;
@@ -404,6 +402,101 @@ body {
   height: 130px;
   background: none;
   border: solid 4px gray;
+}
+.Bypassgeral{
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 125px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  background: gray;
+}
+.Transferbypass{
+  position: absolute;
+  top: 70px;
+  left: 8px;
+  width: 125px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  background: gray;
+}
+.Retorn{
+  position: absolute;
+  top: 70px;
+  left: 228px;
+  width: 125px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  background: gray;
+}
+.Seletor{
+  position: absolute;
+  top: 80px;
+  left: 160px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #000;
+  transition: transform 0.5s ease; /* Suaviza a rotação */
+
+}
+.TraçoSeletor{
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: block;
+  width: 22px;
+  height: 6px;
+  background: white;
+  transform: rotate(90deg);
+}
+.Seletor .T1{
+  position: absolute;
+  top: -16px;
+  left: -7px;
+  font-weight: bold;
+}
+.Seletor .T1linha{
+  position: absolute;
+  top: 5px;
+  left: -25px;
+  display: block;
+  width: 23px;
+  height: 3px;
+  transform: rotate(35deg);
+  background: #000;
+}
+.Seletor .T2{
+  position: absolute;
+  top: -16px;
+  left: 38px;
+  font-weight: bold;
+}
+.Seletor .T2linha{
+  position: absolute;
+  top: 5px;
+  left: 43px;
+  display: block;
+  width: 23px;
+  height: 3px;
+  transform: rotate(-40deg);
+  background: #000;
 }
 .IHM {
   position: absolute;
@@ -790,21 +883,19 @@ input:checked + label .DJQD3 {
   top: 25px;
   left: 170px;
   transform: translate(-50%, -50%);
-  visibility: hidden;
 }
 #QD2 {
   position: absolute;
   top: 90px;
   left: 250px;
   transform: translate(-50%, -50%);
-  visibility: hidden;
+
 }
 #QD1 {
   position: absolute;
   top: 90px;
   left: 100px;
   transform: translate(-50%, -50%);
-  visibility: hidden;
 }
 .Linha {
   position: absolute;
@@ -1063,29 +1154,29 @@ input:checked + label .DJQD3 {
 .Typebypass {
   position: absolute;
   top: 155px;
-  left: 0;
+  left: 545px;
   width: 165px;
   height: 70px;
   border-top: solid 2px;
   border-bottom: solid 2px;
 }
-.Typebypass span {
+.Typebypass h1 {
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 12px;
-  color: gray;
-  font-weight: bold;
-}
-.Typebypass h1 {
-  position: absolute;
-  top: 40px;
-  left: 30px;
   font-size: 13px;
   color: gray;
   font-weight: bold;
 }
 .Typebypass h2 {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  color: gray;
+}
+.Typebypass h3 {
   position: absolute;
   top: 40px;
   left: 66px;
@@ -1096,20 +1187,19 @@ input:checked + label .DJQD3 {
 .StatusMode {
   position: absolute;
   top: 230px;
-  left: 0;
+  left: 545px;
   width: 165px;
   height: 70px;
   background: none;
 }
-.StatusMode h1 {
+.StatusMode ::before {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 13px;
-  font-weight: bold;
-  color: gray;
+  content: 'HMI MODE';
+  top: -30px;
+  left: -45px;
+  font-size: 14px;
 }
-.StatusMode h2 {
+.StatusMode h1 {
   position: absolute;
   top: 40px;
   left: 55px;
@@ -1208,6 +1298,9 @@ input:checked + label .DJQD3 {
   cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   font-weight: bold;
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .Config {
   position: absolute;
