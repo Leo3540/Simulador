@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>DRUP'S - IHM</title>
     <script type="text/javascript" src="./index.js" defer=""></script>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
   </head>
+  
   <body>
+
+    <!-- POP-UP DE DESLIGAMENTO DA DRUPS=========================================
+    ==========================================================================-->
+    <div class="popup-aviso" style="display: none;">
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="fechar-popup" style="background:none;border:none;font-size:18px;cursor:pointer;">✖</button>
+      </div>
+      <div style="text-align: center; margin-top: -10px;">
+        <h2>⚠️ WARNING</h2>
+        <p>If you press on <strong>OFF CONFIRMATION</strong> button for 5s, all the bypass breakers will open and</p>
+        <p><strong>THE LOAD WILL NOT BE SUPPLIED ANYMORE</strong></p>
+        <p>Otherwise, set program switch on <strong>BY-PASS</strong>.</p>
+      </div>
+    </div>
+    <!--===========================================================================================-->
+
+    <!--===========================PAINEL DE CONTROLE IHM==========================================-->
     <div class="Painel">
       <div class="PainelStatusAlarme">
-        <h1>STATUS</h1>
-        <h2>SEM ALARMES</h2>
-        <h3>ALARME AMARELO</h3>
-        <h4>ALARME VERMELHO</h4>
-        <div class="PainelStatusAlarme-Verde"></div>
-        <div class="PainelStatusAlarme-Amarelo"></div>
-        <div class="PainelStatusAlarme-Vermelho"></div>
+        <label class="StatuS">STATUS</label>
+        <label class="sem-alarme">SEM ALARMES</label>
+        <label class="alarme-amarelo">ALARME AMARELO</label>
+        <label class="alarme-vermelho">ALARME VERMELHO</label>
+        <div style="top: 40%; left: 8%;"  class="circulo-verde"></div>
+        <div style="top: 40%; left: 43%;"  class="circulo-amarelo"></div>
+        <div style="top: 40%; left: 77%;" class="circulo-vermelho"></div>
       </div>
+
       <div class="PainelComando">
         <span class="P8"></span>
         <span class="P7"></span>
@@ -26,18 +48,18 @@
         <span class="P3"><span class="texto">3</span></span>
         <span class="P2"><span class="texto">2</span></span>
         <span class="P1"><span class="texto">1</span></span>
-        <div class="Seletora">
-          <span class="TraçoSeletora"></span>
-        </div>
+        <div class="Seletora"><span class="TraçoSeletora"></span></div>
         <div class="SinopticoCargaProtegida"></div>
         <div class="LabelCargaSegura">CARGA PROTEGIDA</div>
+        
         <div class="BotãoEmergencia">
           <div class="LabelConfirmaçãoDesligamento">
-            CONFIRMAÇÃO<br />
+            CONFIRMAÇÃO<br>
             DELIGAMENTO
           </div>
           <button class="ConfimaçãoDesligar"></button>
         </div>
+        
         <h1>PROGRAMA</h1>
         <div class="CiaxaPainelComando">
           <button class="Posição4">CARGA PROTEGIDA</button>
@@ -79,12 +101,13 @@
           <h4>Unit in normal mode</h4>
           <h5>Press SL AGAIN</h5>
         </div>
+        <!--=====================Status de alarme no painel principal================= -->
         <div class="Status_alarme">
-          <h1>ALARM STATUS</h1>
-          <h2>QDM OFF</h2>
-          <div class="Verde"></div>
-          <div class="Amarelo"></div>
-          <div class="Vermelho"></div>
+          <label class="alarm-status">ALARM STATUS</label>
+          <label class="qdm-off">QDM OFF</label>
+          <div style="top: 40%; left: 5%;"  class="circulo-verde"></div>
+          <div style="top: 40%; left: 39%;"  class="circulo-amarelo"></div>
+          <div style="top: 40%; left: 73%;" class="circulo-vermelho"></div>
         </div>
         <div class="Btest">
           <button class="Lamps">LAMPS TEST</button>
@@ -92,9 +115,9 @@
           <button class="Idioma">LANGUAGE</button>
         </div>
         <div class="Controle">
-          <button class="Alarme">ALARMS</button>
-          <button class="Status">STATUS</button>
-          <button class="Contr">CONTROL</button>
+          <button class="Alarme" onclick="window.location.href='Pagina_alarme.html'">ALARMS</button>
+          <button class="Status" onclick="window.location.href='Pagina_Status.html'">STATUS</button>
+          <button class="Contr" onclick="window.location.href='Control.html'">CONTROL</button>
         </div>
         <div class="Config">
           <button class="Configuração">SETTINGS</button>
@@ -108,15 +131,15 @@
             <h3>V/F OK</h3>
             <h4>KS</h4>
             <h5>MIMIC</h5>
-            <input id="QD3" type="checkbox" />
+            <input id="QD3" type="checkbox">
             <label for="QD3">
               <div class="DJQD3"></div>
             </label>
-            <input id="QD1" type="checkbox" />
+            <input id="QD1" type="checkbox">
             <label for="QD1">
               <div class="DJQD1"></div>
             </label>
-            <input id="QD2" type="checkbox" />
+            <input id="QD2" type="checkbox">
             <label for="QD2">
               <div class="DJQD2"></div>
             </label>
@@ -143,16 +166,22 @@
             <div class="Circulo7"></div>
             <div class="Bobina"></div>
             <div class="Bobina1"></div>
+            <!-- ===============Sinoptico de sensores do sistema =======================-->  
             <div class="Sinotico">
-              <div class="SYN">SYN</div>
-              <div class="FUE">FUE</div>
-              <div class="AXL">AXL</div>
-              <div class="PNL">PNL</div>
-              <div class="MOD">MOD</div>
-              <div class="DC">DC</div>
-              <div class="KS">KS</div>
-              <div class="PAR">PAR</div>
+              <div class="column">
+                <div class="box">SYN</div>
+                <div class="box">FUE</div>
+                <div class="box">AXL</div>
+              </div>
+              <div class="column">
+                <div class="box">PNL</div>
+                <div class="box">MOD</div>
+                <div class="box">DC</div>
+                <div class="box">KS</div>
+                <div class="box">PAR</div>
+              </div>
             </div>
+
             <div class="SBOFF">SB: OFF</div>
             <div class="ShortBreak">
               <h6>QD5 OFF</h6>
@@ -162,22 +191,22 @@
           <div class="Base"></div>
           <!-- Imagens do gerador-->
           <div class="CaixaCentro">
-            <img src="CENTRO.png" class="imagem-destaque" />
+            <img src="CENTRO.png" class="imagem-destaque">
           </div>
           <div class="CaixaMotor">
-            <img src="MOTOR.png" class="imagem-destaque" />
+            <img src="MOTOR.png" class="imagem-destaque">
           </div>
           <div class="CaixaAcumulador">
-            <img src="ACUMULADOR.png" class="imagem-destaque" />
+            <img src="ACUMULADOR.png" class="imagem-destaque">
           </div>
         </div>
         <div class="Typebypass">
-            <h1>BYPASS TYPE</h1>
-            <h2>STOP</h2>
-            <h3>/ RUN</h3>
+          <h1>BYPASS TYPE</h1>
+          <h2>STOP</h2>
+          <h3>/ RUN</h3>
         </div>
         <div class="StatusMode">
-            <h1>LOCAL</h1>
+          <h1>LOCAL</h1>
         </div>
         <div class="Mode">
           <span>MODE</span>
@@ -189,139 +218,5 @@
         </div>
       </div>
     </div>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const seletora = document.querySelector(".Seletora")
-
-  const posicoes = {
-    Posição4: 0, // CARGA PROTEGIDA
-    Posição3: -40, // CONTROLE IHM
-    Posição2: -100, // BY-PASS
-    Posição1: -160, // DESLIGAR
-  }
-
-  const modos = {
-    Posição4: "h5", // SECURED
-    Posição3: "h4", // HMI
-    Posição2: "h3", // BYPASS
-    Posição1: "h2", // OFF
-  }
-
-  Object.keys(posicoes).forEach((classe) => {
-    document.querySelector(`.${classe}`).addEventListener("click", function () {
-      // Rotaciona a seletora
-      const angulo = posicoes[classe]
-      seletora.style.transform = `rotate(${angulo}deg)`
-
-      // Atualiza as cores dos elementos na <div class="Mode">
-      const modeDiv = document.querySelector(".Mode")
-      const tags = modeDiv.querySelectorAll("h2, h3, h4, h5")
-      tags.forEach((tag) => {
-        tag.style.color = "gray"
-      })
-
-      const destaque = modeDiv.querySelector(modos[classe])
-      if (destaque) {
-        destaque.style.color = "green"
-      }
-
-      // Ativa ou desativa o botão ".Contr"
-      const botaoContr = document.querySelector(".Contr")
-      if (classe === "Posição3") {
-        botaoContr.style.pointerEvents = "auto"
-        botaoContr.style.opacity = "1"
-        botaoContr.style.cursor = "pointer"
-      } else {
-        botaoContr.style.pointerEvents = "none"
-        botaoContr.style.opacity = "0.6"
-        botaoContr.style.cursor = "not-allowed"
-      }
-
-      // Exibe popup se for a posição 1 (DESLIGAR)
-      if (classe === "Posição1") {
-        mostrarPopup()
-      }
-    })
-  })
-
-  // ✅ Função para mostrar o popup
-  function mostrarPopup() {
-    if (document.querySelector(".popup-aviso")) return // já existe
-
-    const popup = document.createElement("div")
-    popup.className = "popup-aviso"
-    popup.style.position = "fixed"
-    popup.style.width = "10cm"
-    popup.style.height = "6cm"
-    popup.style.top = "50%"
-    popup.style.left = "50%"
-    popup.style.transform = "translate(-50%, -50%)"
-    popup.style.backgroundColor = "white"
-    popup.style.border = "2px solid red"
-    popup.style.zIndex = "9999"
-    popup.style.padding = "1rem"
-    popup.style.color = "red"
-    popup.style.fontWeight = "bold"
-    popup.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)"
-    popup.style.position = "fixed"
-
-    popup.innerHTML = `
-      <div style="display: flex; justify-content: flex-end;">
-        <button class="fechar-popup" style="background:none;border:none;font-size:18px;cursor:pointer;">✖</button>
-      </div>
-      <div style="text-align: center; margin-top: -10px;">
-        <h2>⚠️ WARNING</h2>
-        <p>If you press on <strong>OFF CONFIRMATION</strong> button for 5s, all the bypass breakers will open and</p>
-        <p><strong>THE LOAD WILL NOT BE SUPPLIED ANYMORE</strong></p>
-        <p>Otherwise, set program switch on <strong>BY-PASS</strong>.</p>
-      </div>
-    `
-
-    document.body.appendChild(popup)
-
-    document.querySelector(".fechar-popup").addEventListener("click", function () {
-      popup.remove()
-    })
-  }
-
-  // ✅ Pressionar por 5 segundos marca os checkboxes
-  const btnDesligar = document.querySelector(".ConfimaçãoDesligar")
-  let timerPressiona
-
-  btnDesligar.addEventListener("mousedown", function () {
-    timerPressiona = setTimeout(() => {
-      const checkboxes = ["QD1", "QD2"]
-      checkboxes.forEach((id) => {
-        const checkbox = document.getElementById(id)
-        if (checkbox) {
-          checkbox.checked = true
-        }
-      })
-    }, 5000)
-  })
-
-  btnDesligar.addEventListener("mouseup", function () {
-    clearTimeout(timerPressiona)
-  })
-
-  btnDesligar.addEventListener("mouseleave", function () {
-    clearTimeout(timerPressiona)
-  })
-})
-
-// Atualização da hora
-function atualizarHora() {
-  const agora = new Date()
-  const horas = agora.getHours().toString().padStart(2, "0")
-  const minutos = agora.getMinutes().toString().padStart(2, "0")
-  const segundos = agora.getSeconds().toString().padStart(2, "0")
-  document.querySelector(
-    ".HORA"
-  ).textContent = `${horas}:${minutos}:${segundos}`
-}
-
-setInterval(atualizarHora, 1000) // atualiza a cada segundo
-atualizarHora() // mostra logo ao carregar
-    </script>
   </body>
 </html>
