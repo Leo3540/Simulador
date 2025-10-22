@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>DRUP'S - IHM</title>
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+
+  <body>
+    <div class="Painel">
+      <!--===========================DISPLAY IHM==========================================-->
+      <div class="IHM">
+        <!--=====================Botoes do painel de Status ================= -->
+        <section class="container-status">
+          <button class="botoes">KS MEASURES</button>
+          <button class="botoes">ELECTRICAL</button>
+          <button class="botoes">MODEM / MODBUS</button>
+          <button class="botoes">SYSTEM</button>
+          <button class="botoes">ACCU / ENGINE</button>
+          <button style="background: #C0C0C0;" class="botoes">NETWORKY</button>
+        </section>
+
+        <section class="container-status-botao">
+          <button class="botoess" onclick="window.location.href='index.html'">HOME</button>
+          <button class="botoess">STAND-BY</button>
+        </section>
+
+        <section class="descrição-status">
+          <label class="texto-status">Display system analog measurements temperatures, speed, batteries,<br>
+            fuel, stato and other measures</label>
+
+          <label class="texto-status">Display electrical values related to the systemn: woltages, currents and<br>
+            frequency on KS, upstream and downstream</label>
+
+          <label class="texto-status">Display modem and modbus status and errors</label>
+
+          <label class="texto-status">Display general information about system<br>KS operation time, maintenance schedule and auto tests dates<br> Digital Control Module main parameters, mains failure counters
+          </label>
+          <label class="texto-status">Display accurotor and engine main operating parameters<br>
+            Display fuel system and stato fans parameters.<br>
+            Start/stop manual engine test.,
+          </label>
+          <label style="color: #9fa1a1;" class="texto-status">Display information about PLCs communication network and about<br>
+            downstream power network (DC positions)<br>
+            Only active on parallel systems:
+          </label>
+        </section>
+      </div>
+    </div>
+
+  </body>
+
+</html>
