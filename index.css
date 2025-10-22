@@ -12,6 +12,22 @@ body {
   height: 100vh;
   background: linear-gradient(to bottom, #fafbfc, gray);
 }
+.popup-aviso {
+  position: fixed;
+  width: 10cm;
+  height: 6cm;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid red;
+  z-index: 9999;
+  padding: 1rem;
+  color: red;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: none; /* Oculta por padrão */
+}
 .Painel {
   position: absolute;
   top: 10px;
@@ -20,6 +36,8 @@ body {
   height: 570px;
   background: #8d8e8f;
 }
+
+/* Painel sinoptico de sinalizacao dos alarmes na IHM */
 .PainelStatusAlarme {
   position: absolute;
   top: 0;
@@ -29,7 +47,7 @@ body {
   background: none;
   border: solid 4px gray;
 }
-.PainelStatusAlarme h1 {
+.PainelStatusAlarme .StatuS {
   position: absolute;
   top: 6px;
   left: 6px;
@@ -44,7 +62,7 @@ body {
   font-weight: bolder;
   font-family: sans-serif;
 }
-.PainelStatusAlarme h2 {
+.PainelStatusAlarme .sem-alarme {
   position: absolute;
   top: 105px;
   left: 6px;
@@ -59,7 +77,7 @@ body {
   font-weight: bolder;
   font-family: sans-serif;
 }
-.PainelStatusAlarme h3 {
+.PainelStatusAlarme .alarme-amarelo {
   position: absolute;
   top: 105px;
   left: 133px;
@@ -74,7 +92,7 @@ body {
   font-weight: bolder;
   font-family: sans-serif;
 }
-.PainelStatusAlarme h4 {
+.PainelStatusAlarme .alarme-vermelho {
   position: absolute;
   top: 105px;
   left: 255px;
@@ -88,44 +106,6 @@ body {
   font-size: 7px;
   font-weight: bolder;
   font-family: sans-serif;
-}
-.PainelStatusAlarme-Verde {
-  position: absolute;
-  top: 55px;
-  left: 30px;
-  width: 40px;
-  height: 40px;
-  background: green;
-  background: green;
-  border-radius: 100%;
-  border: solid 3px;
-  box-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green, 0 0 0px green;
-}
-.PainelStatusAlarme-Amarelo {
-  position: absolute;
-  top: 55px;
-  left: 160px;
-  width: 40px;
-  height: 40px;
-  background: yellow;
-  background: yellow;
-  border-radius: 100%;
-  border: solid 3px;
-  box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow, 0 0 0px yellow;
-  opacity: 0.2;
-}
-.PainelStatusAlarme-Vermelho {
-  position: absolute;
-  top: 55px;
-  left: 278px;
-  width: 40px;
-  height: 40px;
-  background: red;
-  background: red;
-  border-radius: 100%;
-  border: solid 3px;
-  box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 0px red;
-  opacity: 0.2;
 }
 .PainelComando {
   position: absolute;
@@ -561,55 +541,20 @@ body {
   height: 95px;
   border: solid 2px grey;
 }
-.Status_alarme h1 {
+.Status_alarme .alarm-status {
   position: absolute;
   top: 10px;
   left: 5px;
   font-size: 11px;
   color: #050505;
 }
-.Status_alarme h2 {
+.Status_alarme .qdm-off {
   position: absolute;
   top: 10px;
   left: 120px;
   font-size: 11px;
   font-weight: lighter;
   color: #a3a4a5;
-}
-.Verde {
-  position: absolute;
-  top: 40px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  background: green;
-  border-radius: 100%;
-  border: solid 3px;
-  box-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green, 0 0 0px green;
-}
-.Amarelo {
-  position: absolute;
-  top: 40px;
-  left: 70px;
-  width: 40px;
-  height: 40px;
-  background: yellow;
-  border-radius: 100%;
-  opacity: 0.3;
-  border: solid 2px;
-  box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow, 0 0 0px yellow;
-}
-.Vermelho {
-  position: absolute;
-  top: 40px;
-  left: 129px;
-  width: 40px;
-  height: 40px;
-  background: red;
-  border-radius: 100%;
-  opacity: 0.2;
-  border: solid 3px;
-  box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 0px red;
 }
 .Gerador {
   position: absolute;
@@ -691,20 +636,28 @@ body {
   font-size: 13px;
   font-weight: bold;
 }
+/*===========================Sinoptico de alarmes de sensores============================*/
 .Sinotico {
   position: absolute;
   top: 115px;
   left: 340px;
-  width: 60px;
-  height: 80px;
+  width: 63px;
+  height: 95px;
   background: #5b687a;
   border: solid 4px gray;
+  display: flex;
+  justify-content: space-between; /* duas colunas */
+  padding: 2px;
+  box-sizing: border-box;
 }
-.SYN {
-  position: absolute;
-  top: 32px;
-  left: 2px;
-  width: 25px;
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px; /* espaçamento entre as caixas */
+}
+.box {
+  width: 22px;
   height: 11px;
   background: green;
   border: dashed 1px black;
@@ -712,97 +665,7 @@ body {
   font-size: 9px;
   font-family: sans-serif;
   font-weight: bold;
-}
-.FUE {
-  position: absolute;
-  top: 49px;
-  left: 2px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.AXL {
-  position: absolute;
-  top: 65px;
-  left: 2px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.PNL {
-  position: absolute;
-  top: 2px;
-  left: 31px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.MOD {
-  position: absolute;
-  top: 17px;
-  left: 31px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.DC {
-  position: absolute;
-  top: 32px;
-  left: 31px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.KS {
-  position: absolute;
-  top: 49px;
-  left: 31px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-.PAR {
-  position: absolute;
-  top: 65px;
-  left: 31px;
-  width: 25px;
-  height: 11px;
-  background: green;
-  border: dashed 1px black;
-  text-align: center;
-  font-size: 9px;
-  font-family: sans-serif;
-  font-weight: bold;
+  line-height: 11px; /* centraliza o texto verticalmente */
 }
 .Caixadisjuntores {
   position: relative;
@@ -883,19 +746,21 @@ input:checked + label .DJQD3 {
   top: 25px;
   left: 170px;
   transform: translate(-50%, -50%);
+   visibility: hidden;
 }
 #QD2 {
   position: absolute;
   top: 90px;
   left: 250px;
   transform: translate(-50%, -50%);
-
+   visibility: hidden;
 }
 #QD1 {
   position: absolute;
   top: 90px;
   left: 100px;
   transform: translate(-50%, -50%);
+  visibility: hidden;
 }
 .Linha {
   position: absolute;
@@ -1061,7 +926,7 @@ input:checked + label .DJQD3 {
   left: 30px;
   width: 13px;
   height: 13px;
-  background: green;
+  background:green;
   border-radius: 100%;
 }
 .Circulo7 {
@@ -1070,7 +935,7 @@ input:checked + label .DJQD3 {
   left: 250px;
   width: 13px;
   height: 13px;
-  background: white;
+  background: green;
   border-radius: 100%;
 }
 .Base {
@@ -1385,4 +1250,108 @@ input:checked + label .DJQD3 {
   width: 1px;
   left: calc(1600 / 1600 * 100% * 0.8); /* 80% visual */
   border-left: 1px dashed black;
+}
+/*============== Led de alarmes============*/
+.circulo-verde  {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: green;
+  background: green;
+  border-radius: 100%;
+  border: solid 3px;
+  box-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green, 0 0 0px green;
+  display: inline-block;
+  opacity: 1;
+}
+.circulo-amarelo  {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: yellow;
+  background: yellow;
+  border-radius: 100%;
+  border: solid 3px;
+  box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow, 0 0 0px yellow;
+  display: inline-block;
+  opacity: 0.2;
+}
+.circulo-vermelho  {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: red;
+  background: red;  
+  border-radius: 100%;
+  border: solid 3px;
+  box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 0px red;
+  display: inline-block;
+  opacity: 0.2;
+}
+/*CSS Referente a pagina de status*/
+.container-status{
+  position: relative;
+  width: 150px;
+  height: 400px;
+  top: 25px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  border: dashed 1px black;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.botoes {
+  width: 130px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px #858686;
+  font-weight: bold;
+  background: #9fa1a1;
+}
+.container-status-botao{
+  position: relative;
+  width: 710px;
+  height: 65px;
+  top: 27px;
+  left: 5px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  border-top: solid 4px rgb(132, 131, 131);
+}
+.botoess{
+  width: 130px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px #858686;
+  font-weight: bold;
+  background: #9fa1a1;
+}
+.descrição-status{
+  position: relative;
+  width: 500px;
+  height: 400px;
+  top: -448px;
+  left: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+.texto-statu{
+  width: 130px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  font-size: 10px;
 }
