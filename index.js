@@ -112,7 +112,7 @@ function mostrarPopup(classe) {
   btnDesligar.addEventListener("mousedown", function () {
     timerPressiona = setTimeout(() => {
       const checkboxes = ["QD3"]
-            imgmotorEL.src = `motordesligado.png`;
+            imgmotorEL.src = `motordeligado.png`;
             imgacumuladorEl.src = `acumuladordesligado.png`;
       checkboxes.forEach((id) => {
         const checkbox = document.getElementById(id)
@@ -144,4 +144,5 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
 
