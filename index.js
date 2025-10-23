@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const seletora = document.querySelector(".Seletora");
   const imgmotorEL = document.querySelector(`#statusmotor`);
-  //const imgacumuladorEL = Document.querySelector(`#statusacumulador`);
   const imgacumuladorEl = document.querySelector(`#statusacumulador`);
   
   const posicoes = {
@@ -66,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
             ["QD1", "QD3", "QD2"].forEach((id, index) => {
               setTimeout(() => {
                 const checkbox = document.getElementById(id);
-                imgmotorEL.src = `MotorLigado.png`;
-                imgacumuladorEl.src = `ACUMULADOR.PNG`;
+                imgmotorEL.src = `motorligado.png`;
+                imgacumuladorEl.src = `acumuladorligado.PNG`;
                 if (checkbox) checkbox.checked = true;
               }, index * 70); // 500ms de delay entre cada checkbox
             });
@@ -78,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
           div.style.backgroundColor = 'Green';
         ["QD1", "QD2", "QD3"].forEach((id) => {
           const checkbox = document.getElementById(id);
-          imgmotorEL.src = `MOTOR.png`;
-          imgacumuladorEl.src = `ACUMULADOR.PNG`;
+          imgmotorEL.src = `motordeligado.png`;
+          imgacumuladorEl.src = `acumuladorligado.PNG`;
           if (checkbox) checkbox.checked = false;
         });
       }
@@ -113,8 +112,8 @@ function mostrarPopup(classe) {
   btnDesligar.addEventListener("mousedown", function () {
     timerPressiona = setTimeout(() => {
       const checkboxes = ["QD3"]
-            imgmotorEL.src = `MOTOR.PNG`;
-            imgacumuladorEl.src = `AcumuladorDesligado.PNG`;
+            imgmotorEL.src = `motordesligado.png`;
+            imgacumuladorEl.src = `acumuladordesligado.png`;
       checkboxes.forEach((id) => {
         const checkbox = document.getElementById(id)
         if (checkbox) {
@@ -145,3 +144,4 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
