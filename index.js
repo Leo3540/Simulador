@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const seletora = document.querySelector(".Seletora");
   const imgmotorEL = document.querySelector(`#statusmotor`);
-  //const imgacumuladorEL = Document.querySelector(`#statusacumulador`);
   const imgacumuladorEl = document.querySelector(`#statusacumulador`);
 
   const posicoes = {
@@ -146,3 +145,4 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
