@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const seletora = document.querySelector(".Seletora");
-  const imgmotorEL = document.querySelector(`#statusmotor`);
-  const imgacumuladorEl = document.querySelector(`#statusacumulador`);
 
   const posicoes = {
     Posição4: 0,      // CARGA PROTEGIDA
@@ -66,8 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ["QD1", "QD3", "QD2"].forEach((id, index) => {
               setTimeout(() => {
                 const checkbox = document.getElementById(id);
-                imgmotorEL.src = `MotorLigado.png`;
-                imgacumuladorEl.src = `ACUMULADOR.PNG`;
                 if (checkbox) checkbox.checked = true;
               }, index * 70); // 500ms de delay entre cada checkbox
             });
@@ -78,8 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
           div.style.backgroundColor = 'Green';
         ["QD1", "QD2", "QD3"].forEach((id) => {
           const checkbox = document.getElementById(id);
-          imgmotorEL.src = `MOTOR.png`;
-          imgacumuladorEl.src = `ACUMULADOR.PNG`;
           if (checkbox) checkbox.checked = false;
         });
       }
@@ -113,8 +107,6 @@ function mostrarPopup(classe) {
   btnDesligar.addEventListener("mousedown", function () {
     timerPressiona = setTimeout(() => {
       const checkboxes = ["QD3"]
-            imgmotorEL.src = `MOTOR.PNG`;
-            imgacumuladorEl.src = `AcumuladorDesligado.PNG`;
       checkboxes.forEach((id) => {
         const checkbox = document.getElementById(id)
         if (checkbox) {
@@ -145,4 +137,3 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
-
