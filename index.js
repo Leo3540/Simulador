@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Lógica de piscar do Circulo6
       const div = document.querySelector('.Circulo6');
+      const divel = document.querySelector('.Circulo7');
       if (intervaloPiscar) {
         clearInterval(intervaloPiscar);
         intervaloPiscar = null;
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (classe === "Posição2") {
         let corAtual = 'white'; // Começa com branco
         div.style.backgroundColor = corAtual;
+        divel.style.backgroundColor = 'white';
 
         intervaloPiscar = setInterval(() => {
           corAtual = (corAtual === 'white') ? 'green' : 'white';
@@ -84,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Marca os checkboxes se for a posição 4 (Carga Protegida)
       if (classe === "Posição4") {
         div.style.backgroundColor = 'Green';
+        divel.style.backgroundColor = 'Green';
         ["QD1", "QD2", "QD3"].forEach((id) => {
           const checkbox = document.getElementById(id);
           imgmotorEL.src = `motordesligado.png`;
@@ -155,3 +158,4 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000); // atualiza a cada segundo
 atualizarHora(); // mostra logo ao carregar
+
