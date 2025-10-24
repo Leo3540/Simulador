@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
           div.style.backgroundColor = 'Green';
         ["QD1", "QD2", "QD3"].forEach((id) => {
           const checkbox = document.getElementById(id);
-          imgmotorEL.src = `motordeligado.png`;
-          imgacumuladorEl.src = `acumuladorligado.PNG`;
+          imgmotorEL.src = `motordesligado.png`;
+          imgacumuladorEl.src = `acumulador.png`;
           if (checkbox) checkbox.checked = false;
         });
       }
@@ -112,7 +112,7 @@ function mostrarPopup(classe) {
   btnDesligar.addEventListener("mousedown", function () {
     timerPressiona = setTimeout(() => {
       const checkboxes = ["QD3"]
-            imgmotorEL.src = `motordeligado.png`;
+            imgmotorEL.src = `motordesligado.png`;
             imgacumuladorEl.src = `acumuladordesligado.png`;
       checkboxes.forEach((id) => {
         const checkbox = document.getElementById(id)
@@ -144,6 +144,7 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
 
 
 
