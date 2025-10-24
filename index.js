@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
               setTimeout(() => {
                 const checkbox = document.getElementById(id);
                 imgmotorEL.src = `motorligado.png`;
-                imgacumuladorEl.src = `acumuladorligado.PNG`;
+                imgacumuladorEl.src = `acumulador.png`;
                 if (checkbox) checkbox.checked = true;
               }, index * 70); // 500ms de delay entre cada checkbox
             });
@@ -144,5 +144,6 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000) // atualiza a cada segundo
 atualizarHora() // mostra logo ao carregar
+
 
 
