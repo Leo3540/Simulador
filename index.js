@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ["QD1", "QD3", "QD2"].forEach((id, index) => {
           setTimeout(() => {
             const checkbox = document.getElementById(id);
-            imgmotorEL.src = `motordesgado.png`;
+            imgmotorEL.src = `motordesligado.png`;
             imgacumuladorEl.src = `acumuladordesligado.png`;
             if (checkbox) checkbox.checked = true;
           }, index * 70);
@@ -155,3 +155,4 @@ function atualizarHora() {
 
 setInterval(atualizarHora, 1000); // atualiza a cada segundo
 atualizarHora(); // mostra logo ao carregar
+
