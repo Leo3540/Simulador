@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const seletora = document.querySelector(".Seletora");
   const imgmotorEL = document.querySelector(`#statusmotor`);
   const imgacumuladorEl = document.querySelector(`#statusacumulador`);
-  
+  let intervaloPiscar; // controle do piscar do Circulo6
+
   const posicoes = {
     Posição4: 0,      // CARGA PROTEGIDA
     Posição3: -40,    // CONTROLE IHM
@@ -51,30 +52,38 @@ document.addEventListener("DOMContentLoaded", function () {
       if (classe === "Posição1") {
         mostrarPopup();
       }
-      // Marca os checkboxes se for a posição 2 (BY-PASS)
-          if (classe === "Posição2") {
-                const div = document.querySelector('.Circulo6');
-                let corAtual = 'white'; // Começa com branco
-                div.style.backgroundColor = corAtual;
 
-                // Faz a cor piscar a cada 500ms
-                setInterval(() => {
-                  corAtual = (corAtual === 'white') ? 'green' : 'white';
-                  div.style.backgroundColor = corAtual;
-                }, 500);
-            ["QD1", "QD3", "QD2"].forEach((id, index) => {
-              setTimeout(() => {
-                const checkbox = document.getElementById(id);
-                imgmotorEL.src = `motorligado.png`;
-                imgacumuladorEl.src = `acumulador.png`;
-                if (checkbox) checkbox.checked = true;
-              }, index * 70); // 500ms de delay entre cada checkbox
-            });
-          }
+      // Lógica de piscar do Circulo6
+      const div = document.querySelector('.Circulo6');
+      if (intervaloPiscar) {
+        clearInterval(intervaloPiscar);
+        intervaloPiscar = null;
+        if (div) div.style.backgroundColor = 'white';
+      }
+
+      // Marca os checkboxes se for a posição 2 (BY-PASS)
+      if (classe === "Posição2") {
+        let corAtual = 'white'; // Começa com branco
+        div.style.backgroundColor = corAtual;
+
+        intervaloPiscar = setInterval(() => {
+          corAtual = (corAtual === 'white') ? 'green' : 'white';
+          div.style.backgroundColor = corAtual;
+        }, 500);
+
+        ["QD1", "QD3", "QD2"].forEach((id, index) => {
+          setTimeout(() => {
+            const checkbox = document.getElementById(id);
+            imgmotorEL.src = `motordesgado.png`;
+            imgacumuladorEl.src = `acumuladordesligado.png`;
+            if (checkbox) checkbox.checked = true;
+          }, index * 70);
+        });
+      }
+
       // Marca os checkboxes se for a posição 4 (Carga Protegida)
       if (classe === "Posição4") {
-          const div = document.querySelector('.Circulo6');
-          div.style.backgroundColor = 'Green';
+        div.style.backgroundColor = 'Green';
         ["QD1", "QD2", "QD3"].forEach((id) => {
           const checkbox = document.getElementById(id);
           imgmotorEL.src = `motordesligado.png`;
@@ -82,69 +91,67 @@ document.addEventListener("DOMContentLoaded", function () {
           if (checkbox) checkbox.checked = false;
         });
       }
-        // ✅ Se estiver na Posição1, marque os checkboxes
-        if (classe === "Posição1") {
-          console.log("Desmarcando checkboxes");
-          ["QD1", "QD2", "QD3"].forEach((id) => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) checkbox.checked = true;
-          });
-        }
+
+      // ✅ Se estiver na Posição1, marque os checkboxes
+      if (classe === "Posição1") {
+        console.log("Desmarcando checkboxes");
+        ["QD1", "QD2", "QD3"].forEach((id) => {
+          const checkbox = document.getElementById(id);
+          if (checkbox) checkbox.checked = true;
+        });
+      }
     });
   });
-  // Função para mostrar o popup
-function mostrarPopup(classe) {
-  const popup = document.querySelector(".popup-aviso");
-  if (!popup) return;
-  popup.style.display = "block";
 
-  const botaoFechar = popup.querySelector(".fechar-popup");
-  if (botaoFechar) {
-    botaoFechar.addEventListener("click", function () {
-      popup.style.display = "none";
-    });
+  // Função para mostrar o popup
+  function mostrarPopup(classe) {
+    const popup = document.querySelector(".popup-aviso");
+    if (!popup) return;
+    popup.style.display = "block";
+
+    const botaoFechar = popup.querySelector(".fechar-popup");
+    if (botaoFechar) {
+      botaoFechar.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+    }
   }
-}
+
   // ✅ Pressionar por 5 segundos marca os checkboxes
-  const btnDesligar = document.querySelector(".ConfimaçãoDesligar")
-  let timerPressiona
+  const btnDesligar = document.querySelector(".ConfimaçãoDesligar");
+  let timerPressiona;
 
   btnDesligar.addEventListener("mousedown", function () {
     timerPressiona = setTimeout(() => {
-      const checkboxes = ["QD3"]
-            imgmotorEL.src = `motordesligado.png`;
-            imgacumuladorEl.src = `acumuladordesligado.png`;
+      const checkboxes = ["QD3"];
+      imgmotorEL.src = `motordesligado.png`;
+      imgacumuladorEl.src = `acumuladordesligado.png`;
       checkboxes.forEach((id) => {
-        const checkbox = document.getElementById(id)
+        const checkbox = document.getElementById(id);
         if (checkbox) {
-          checkbox.checked = false
+          checkbox.checked = false;
         }
-      })
-    }, 5000)
-  })
+      });
+    }, 5000);
+  });
 
   btnDesligar.addEventListener("mouseup", function () {
-    clearTimeout(timerPressiona)
-  })
+    clearTimeout(timerPressiona);
+  });
 
   btnDesligar.addEventListener("mouseleave", function () {
-    clearTimeout(timerPressiona)
-  })
-})
+    clearTimeout(timerPressiona);
+  });
+});
+
 // Atualização da hora
 function atualizarHora() {
-  const agora = new Date()
-  const horas = agora.getHours().toString().padStart(2, "0")
-  const minutos = agora.getMinutes().toString().padStart(2, "0")
-  const segundos = agora.getSeconds().toString().padStart(2, "0")
-  document.querySelector(
-    ".HORA"
-  ).textContent = `${horas}:${minutos}:${segundos}`
+  const agora = new Date();
+  const horas = agora.getHours().toString().padStart(2, "0");
+  const minutos = agora.getMinutes().toString().padStart(2, "0");
+  const segundos = agora.getSeconds().toString().padStart(2, "0");
+  document.querySelector(".HORA").textContent = `${horas}:${minutos}:${segundos}`;
 }
 
-setInterval(atualizarHora, 1000) // atualiza a cada segundo
-atualizarHora() // mostra logo ao carregar
-
-
-
-
+setInterval(atualizarHora, 1000); // atualiza a cada segundo
+atualizarHora(); // mostra logo ao carregar
