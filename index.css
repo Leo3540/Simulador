@@ -291,7 +291,7 @@ body {
   font-family: sans-serif;
   background: gray;
 }
-.ConfimaçãoDesligar {
+.ConfirmaçãoDesligar {
   position: absolute;
   top: 25px;
   left: 30px;
@@ -300,7 +300,6 @@ body {
   border: solid 2px;
   border-radius: 50%;
   font-size: 14px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   background: red;
 }
@@ -494,7 +493,7 @@ body {
   height: 95px;
   border: solid 2px grey;
 }
-.Status_da_unidade h1 {
+#NO-BREAK-LOAD {
   position: absolute;
   top: 2px;
   left: 5px;
@@ -502,7 +501,7 @@ body {
   font-weight: bold;
   color: black;
 }
-.Status_da_unidade h2 {
+#Unit-in-bypass {
   position: absolute;
   top: 25px;
   left: 5px;
@@ -510,7 +509,7 @@ body {
   font-weight: bold;
   color: #a3a4a5;
 }
-.Status_da_unidade h3 {
+#Unit-in-emergency-mode {
   position: absolute;
   top: 43px;
   left: 5px;
@@ -518,14 +517,14 @@ body {
   font-weight: bold;
   color: #a3a4a5;
 }
-.Status_da_unidade h4 {
+#Unit-in-normal-mode {
   position: absolute;
   top: 60px;
   left: 5px;
   font-size: 12px;
   font-weight: bold;
 }
-.Status_da_unidade h5 {
+#press-sl-again {
   position: absolute;
   top: 76px;
   left: 5px;
@@ -563,6 +562,7 @@ body {
   width: 523px;
   height: 300px;
   border: dashed 2px #a3a4a5;
+  
 }
 .ShortBreak {
   position: absolute;
@@ -1089,7 +1089,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 14px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
 }
 .Horn {
@@ -1101,7 +1100,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 14px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
 }
 .Idioma {
@@ -1113,7 +1111,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 14px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
 }
 .Controle {
@@ -1133,7 +1130,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   font-weight: bold;
 }
@@ -1147,7 +1143,6 @@ input:checked + label .DJQD3 {
   border-radius: 3px;
   font-size: 16px;
   font-style: unset;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   font-weight: bold;
 }
@@ -1160,7 +1155,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   font-weight: bold;
   pointer-events: none;
@@ -1185,7 +1179,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  cursor: pointer;
   box-shadow: 0 5px #c1c2c2;
   font-weight: bold;
 }
@@ -1307,7 +1300,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 12px;
-  cursor: pointer;
   box-shadow: 0 5px #858686;
   font-weight: bold;
   background: #9fa1a1;
@@ -1330,7 +1322,6 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 12px;
-  cursor: pointer;
   box-shadow: 0 5px #858686;
   font-weight: bold;
   background: #9fa1a1;
@@ -1354,4 +1345,207 @@ input:checked + label .DJQD3 {
   border: none;
   border-radius: 3px;
   font-size: 10px;
+}
+/*Pagina control do sistema*/
+.mains-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  padding: 2px;
+  margin: 0;
+  height: 60px;
+}
+.mains-mod {
+  width: 115px;
+  height: 40px;
+  border-radius: 3px;
+  font-family: sans-serif;
+  font-size: 12px;
+  box-shadow: 0 5px #c1c2c2;
+  background: gray;
+  border: 1px solid gray;
+  font-weight: bold;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+.mains-mod.ativo {
+  background: green;
+  border-color: darkgreen;
+}
+.pagina_control_html_main-mode{
+  position: absolute; 
+  top: 270px; 
+  border: solid 2px gray; 
+  width: 250px; 
+  height: 145px; 
+  left: 5px; 
+}
+.pagina_control_html-label{
+  font-size: 11px; 
+  padding: 3px;
+  margin-top: 0px; 
+  height: 5px;
+}
+.pagina_control_html_dcm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  top: 335px;
+  left: 262px;
+  height: 80px;
+  width: 180px;
+  border: solid 2px gray;
+}
+.pagina_control_html_status_alarme{
+  position: absolute;
+  top: 335px;
+  left: 449px;
+  height: 80px;
+  width: 262px;
+  border: solid 2px gray;
+}
+.pagina_control_html_alarm-status {
+  font-size: 12px;
+  margin-left: 5px;
+  font-family: sans-serif;
+}
+.pagina_control_html_qdm-off{
+  font-size: 12px;
+  margin-left: 30px;
+  font-family: sans-serif;
+}
+.pagina_control_html_General-by-pass{
+  position: absolute;
+  top: 270px;
+  left: 262px;
+  height: 60px;
+  width: 262px;
+  border: solid 2px gray;
+}
+.pagina_control_html_no-break-load{
+  position: absolute;
+  top: 256px;
+  left: 530px;
+  height: 74px;
+  width: 180px;
+  border: solid 2px gray;
+}
+.pagina_control_html_enginetest{
+  position: absolute;
+  top: 195px;
+  left: 530px;
+  height: 55px;
+  width: 180px;
+  border: dashed 2px gray;
+}
+.pagina_control_html_modeihm{
+  position: absolute;
+  top: 8px;
+  left: 530px;
+  height: 180px;
+  width: 180px;
+  border: dashed 2px gray;
+}
+.Gerador#gerador {
+  position: absolute;
+  border: none;
+  top: -16px;
+  left: 20px;
+}
+.Sinotico#sinotico{
+  left: 380px;
+}
+.DCM{
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.DCM#dcm{
+  font-size: 15px;
+  font-weight: bold;
+}
+.general-by-pass{
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 12px;
+  flex-direction: row;
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px 20px; /* row-gap column gap */
+}
+.pagina_control_html_botao{
+  padding: 2px;
+  margin: 0;
+  width: 110px;
+  height: 30px;
+  font-weight: bold;
+  background: gray;
+}
+.pagina_control_html_General-by-pass span{
+  font-weight: bold;
+  margin-left: 5px;
+}
+.pagina_control_html_no-break-load span{
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-left: 5px;
+  font-size: 15px;
+}
+.pagina_control_html_enginetest div{
+display: flex;
+flex-direction: row;
+gap: 10px 30px; /* row-gap column gap */
+flex-shrink: 0;
+margin-left: 10px;
+margin-top: 5px;
+}
+.pagina_controltest{
+  padding: 2px;
+  margin: 0;
+  width: 65px;
+  height: 25px;
+  font-weight: bold;
+  background: gray;
+}
+.pagina_control_html_enginetest span{
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-left: 5px;
+  font-size: 15px;
+}
+.pagina_control_html_modeihm div{
+display: flex;
+flex-direction: column;
+gap: 8px 30px; /* row-gap column gap */
+flex-shrink: 0;
+margin-left: 10px;
+margin-top: 20px;
+}
+.pagina_controlmodeihm{
+  padding: 2px;
+  margin: 0;
+  width: 160px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  background: rgb(184, 183, 183);
+
+}
+.pagina_control_html_modeihm {
+  font-family: sans-serif;
+  text-align: center;
+}
+.pagina_control_html_modeihm span {
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  top: 10px;
+}
+.pagina_control_html_modeihm #mainfault{
+  background: grey;
+}
+.Painel button{
+  cursor: pointer;
 }
