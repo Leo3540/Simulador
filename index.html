@@ -34,8 +34,8 @@
         <label class="alarme-amarelo">ALARME AMARELO</label>
         <label class="alarme-vermelho">ALARME VERMELHO</label>
         <div style="top: 40%; left: 8%;"  class="circulo-verde"></div>
-        <div style="top: 40%; left: 43%;"  class="circulo-amarelo"></div>
-        <div style="top: 40%; left: 77%;" class="circulo-vermelho"></div>
+        <div style="top: 40%; left: 43%;"  class="circulo-amarelo" ></div>
+        <div style="top: 40%; left: 77%;" class="circulo-vermelho" ></div>
       </div>
 
       <div class="PainelComando">
@@ -56,7 +56,7 @@
             CONFIRMAÇÃO<br>
             DELIGAMENTO
           </div>
-          <button class="ConfimaçãoDesligar"></button>
+          <button class="ConfirmaçãoDesligar"></button>
         </div>
         
         <h1>PROGRAMA</h1>
@@ -94,11 +94,11 @@
           </div>
         </div>
         <div class="Status_da_unidade">
-          <h1>UNIT STATUS / NO-BREAK LOAD</h1>
-          <h2>Unit in bypass</h2>
-          <h3>Unit in emergency mode</h3>
-          <h4>Unit in normal mode</h4>
-          <h5>Press SL AGAIN</h5>
+          <label id="NO-BREAK-LOAD">UNIT STATUS / NO-BREAK LOAD</label>
+          <label id="Unit-in-bypass">Unit in bypass</label>
+          <label id="Unit-in-emergency-mode">Unit in emergency mode</label>
+          <label id="Unit-in-normal-mode">Unit in normal mode</label>
+          <label id="press-sl-again">Press SL AGAIN</label>
         </div>
         <!--=====================Status de alarme no painel principal================= -->
         <div class="Status_alarme">
@@ -109,14 +109,14 @@
           <div style="top: 40%; left: 73%;" class="circulo-vermelho"></div>
         </div>
         <div class="Btest">
-          <button class="Lamps">LAMPS TEST</button>
-          <button class="Horn">STOP HORN</button>
-          <button class="Idioma">LANGUAGE</button>
+          <button class="Lamps" id="leds">LAMPS TEST</button>
+          <button class="Horn" id="stophorn">STOP HORN</button>
+          <button class="Idioma" id="language">LANGUAGE</button>
         </div>
         <div class="Controle">
           <button class="Alarme" onclick="window.location.href='Pagina_alarme.html'">ALARMS</button>
           <button class="Status" onclick="window.location.href='Pagina_Status.html'">STATUS</button>
-          <button class="Contr" onclick="window.location.href='Control.html'">CONTROL</button>
+          <button class="Contr" onclick="window.location.href='Pagina_control_IHM.html'">CONTROL</button>
         </div>
         <div class="Config">
           <button class="Configuração">SETTINGS</button>
