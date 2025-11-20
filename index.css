@@ -746,7 +746,7 @@ input:checked + label .DJQD3 {
   top: 25px;
   left: 170px;
   transform: translate(-50%, -50%);
-   visibility: hidden;
+   
 }
 #QD2 {
   position: absolute;
@@ -951,6 +951,13 @@ input:checked + label .DJQD3 {
   top: 180px;
   left: 50px;
 }
+#statusembreagem {
+  position: absolute;
+  width: 45px;
+  height: 36px;
+  top: 245px;
+  left: 156px;
+}
 .CaixaCentro {
   position: absolute;
   top: 223px;
@@ -1091,6 +1098,7 @@ input:checked + label .DJQD3 {
   font-size: 14px;
   box-shadow: 0 5px #c1c2c2;
 }
+
 .Horn {
   position: absolute;
   top: 40px;
@@ -1482,6 +1490,9 @@ input:checked + label .DJQD3 {
   height: 30px;
   font-weight: bold;
   background: gray;
+  border-radius: 3px;
+  box-shadow: 0 5px #c1c2c2;
+  border: none;
 }
 .pagina_control_html_General-by-pass span{
   font-weight: bold;
@@ -1508,6 +1519,10 @@ margin-top: 5px;
   height: 25px;
   font-weight: bold;
   background: gray;
+  border-radius: 3px;
+  box-shadow: 0 5px #c1c2c2;
+  border: none;
+  
 }
 .pagina_control_html_enginetest span{
   font-weight: bold;
@@ -1531,7 +1546,9 @@ margin-top: 20px;
   border-radius: 5px;
   font-weight: bold;
   background: rgb(184, 183, 183);
-
+  border-radius: 3px;
+  box-shadow: 0 5px #c1c2c2;
+  border: none;
 }
 .pagina_control_html_modeihm {
   font-family: sans-serif;
@@ -1549,3 +1566,4 @@ margin-top: 20px;
 .Painel button{
   cursor: pointer;
 }
+
