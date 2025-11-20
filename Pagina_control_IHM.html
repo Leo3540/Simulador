@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DRUP'S - IHM</title>
   <link rel="stylesheet" href="./index.css">
-  <script src="./index.js" defer></script>
+    <!--<script src="./index.js" defer></script>-->
+    <script src="./index.js" defer></script>
+	
 </head>
   <body>
     <!-- POP-UP DE DESLIGAMENTO DA DRUPS=========================================
@@ -23,7 +25,11 @@
       </div>
     </div>
     <!--===========================================================================================-->
-
+      
+      <div id="popup">
+        <span id="closeBtn">X</span>
+        <p>Este é o pop-up simples.</p>
+      </div>
     <!--===========================PAINEL DE CONTROLE IHM==========================================-->
     <div class="Painel">
       <div class="PainelStatusAlarme">
@@ -78,18 +84,21 @@
         </div>
       </div>
       <div class="IHM">
+          <div>
+             <span style="position: absolute; width: 70px; height: 20px; border: solid black; top: 170px; left: 200px;" id="motorRPMDisplay">0</span>       </div>        
+
         <section class="pagina_control_html_dcm">
           <span class="DCM" id="dcm">DCM INFORMATION</span>
           <span class="DCM">ACC SPEED:</span>
           <span class="DCM">SYNCM ON:</span>
           <span class="DCM">VOLT REG:</span>
         </section>
-
+        
         <section class="pagina_control_html_General-by-pass">
           <span>General by-pass</span>
           <div class="general-by-pass">
-            <button class="pagina_control_html_botao">GEN BYPASS</button>
-            <button class="pagina_control_html_botao">SL AGIN</button>
+            <button class="pagina_control_html_botao" id="GENBYPASS">GEN BYPASS</button>
+            <button class="pagina_control_html_botao" id="SLAGIN">SL AGIN</button>
           </div>
         </section>
         
@@ -99,11 +108,11 @@
         <section class="pagina_control_html_enginetest">
           <span>ENGINE TEST</span>
           <div>
-            <button class="pagina_controltest">ON</button>
-            <button class="pagina_controltest" >OFF</button>
+            <button class="pagina_controltest" id="botaoon">ON</button>
+            <button class="pagina_controltest" id="botaooff">OFF</button>
           </div>
         </section>
-
+        
         <section class="pagina_control_html_modeihm">
           <span>MODE: IHM</span>
           <div>
@@ -116,13 +125,13 @@
 
         <section class="pagina_control_html_main-mode">
           <div class="pagina_control_html-label">Main mode</div><div class="mains-container">
-            <button class="mains-mod grupo1" id="bypass">BY-PASS</button>
-            <button class="mains-mod grupo1 ativo" id="SECLOAD">SEC. LOAD</button>
+            <button class="mains-mod grupo1" id="modobypass">BY-PASS</button>
+            <button class="mains-mod grupo1 ativo" id="modosecload">SEC. LOAD</button>
           </div> 
 
           <div class="pagina_control_html-label">Operation in by-pass:</div><div class="mains-container"> 
-            <button class="mains-mod grupo2 ativo"id="stop-ks">STOP KS</button>
-            <button class="mains-mod grupo2"id="run">RUN</button>
+            <button class="mains-mod grupo2 ativo"id="modostopks">STOP KS</button>
+            <button class="mains-mod grupo2"id="modorun">RUN</button>
           </div>
         </section>
 
@@ -141,6 +150,7 @@
         </div>
 
         <!-- Elementos do gerador dentro mostrado no Display da IHM-->
+         
         <div id="gerador" class="Gerador">
           <div class="Caixadisjuntores">
             <h1>MAINS</h1>
@@ -157,6 +167,19 @@
             
             <input id="QD2" type="checkbox">
             <label for="QD2"><div class="DJQD2"></div></label>
+			    
+            <input id="QA" type="checkbox">
+            <LAbel  for="QA">QA<div class="DJQA"></div></LAbel>
+
+            <input id="QDM" type="checkbox">
+            <LAbel  for="QDM">QDM<div class="DJQDM"></div></LAbel>
+
+            <input id="QDA" type="checkbox">
+            <LAbel  for="QDA">QDA<div class="DJQDA"></div></LAbel>
+
+            <input id="QDB" type="checkbox">
+            <LAbel  for="QDB">QDB<div class="DJQDB"></div></LAbel>
+
 
             <div class="TrianguloEntrada"></div>
             <div class="TrianguloSaida"></div>
@@ -198,8 +221,10 @@
               </div>
             </div>
           </div>
+          <div class="CaixaEmbreagem"><img style="position: absolute; top: 232px; left: 146px;" src="embreagem.png" class="imagem-destaque" id="statusembreagem"></div>
           <div class="Base"></div>
           <!-- Imagens do gerador-->
+           
           <div class="CaixaCentro">
             <img src="CENTRO.png" class="imagem-destaque">
           </div>
@@ -209,9 +234,10 @@
           <div class="CaixaAcumulador">
             <img src="acumulador.png" class="imagem-destaque" id="statusacumulador">
           </div>
+          
         </div>
       </div>
     </div>
+</div>
   </body>
 </html>
-
