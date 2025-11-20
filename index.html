@@ -80,6 +80,7 @@
         </div>
       </div>
       <div class="IHM">
+        <div class="CaixaEmbreagem"><img src="embreagem.png" class="imagem-destaque" id="statusembreagem"></div>
         <div class="power-bar">
           <div class="power-bar-fill"></div>
           <div class="dashed-line"></div>
@@ -130,18 +131,28 @@
             <h3>V/F OK</h3>
             <h4>KS</h4>
             <h5>MIMIC</h5>
-            <input id="QD3" type="checkbox">
-            <label for="QD3">
-              <div class="DJQD3"></div>
-            </label>
-            <input id="QD1" type="checkbox">
-            <label for="QD1">
-              <div class="DJQD1"></div>
-            </label>
+            
+	    <input id="QD3" type="checkbox">
+            <label for="QD3"><div class="DJQD3"></div></label>
+            
+	    <input id="QD1" type="checkbox">
+            <label for="QD1"><div class="DJQD1"></div></label>
+            
             <input id="QD2" type="checkbox">
-            <label for="QD2">
-              <div class="DJQD2"></div>
-            </label>
+            <label for="QD2"><div class="DJQD2"></div></label>
+
+	    <input id="QA" type="checkbox">
+            <LAbel  for="QA">QA<div class="DJQA"></div></LAbel>
+
+            <input id="QDM" type="checkbox">
+            <LAbel  for="QDM">QDM<div class="DJQDM"></div></LAbel>
+
+            <input id="QDA" type="checkbox">
+            <LAbel  for="QDA">QDA<div class="DJQDA"></div></LAbel>
+
+            <input id="QDB" type="checkbox">
+            <LAbel  for="QDB">QDB<div class="DJQDB"></div></LAbel>
+
             <div class="TrianguloEntrada"></div>
             <div class="TrianguloSaida"></div>
             <div class="Linha"></div>
@@ -188,21 +199,19 @@
             </div>
           </div>
           <div class="Base"></div>
-          <!-- Imagens do gerador-->
-          <div class="CaixaCentro">
-            <img src="CENTRO.png" class="imagem-destaque">
+          <div>
+             <span style="position: absolute; width: 70px; height: 20px; border: solid black; top: 170px; left: 200px;" id="motorRPMDisplay">0</span> 
           </div>
-          <div class="CaixaMotor">
-            <img src="motordesligado.png" class="imagem-destaque" id="statusmotor">
-          </div>
-          <div class="CaixaAcumulador">
-            <img src="acumulador.png" class="imagem-destaque" id="statusacumulador">
-          </div>
+             <!-- Imagens do gerador-->
+          <div class="CaixaCentro"><img src="CENTRO.png" class="imagem-destaque"></div>
+          <div class="CaixaMotor"><img src="motordesligado.png" class="imagem-destaque" id="statusmotor"></div>
+          <div class="CaixaAcumulador"><img src="acumulador.png" class="imagem-destaque" id="statusacumulador"></div>
+          
         </div>
         <div class="Typebypass">
           <h1>BYPASS TYPE</h1>
-          <h2>STOP</h2>
-          <h3>/ RUN</h3>
+          <h2 class="bypasstypestop">STOP</h2>
+          <h3 class="bypasstyperun">/ RUN</h3>
         </div>
         <div class="StatusMode">
           <h1>LOCAL</h1>
@@ -210,12 +219,14 @@
         <div class="Mode">
           <span>MODE</span>
           <h1>PROG. SWITCH</h1>
-          <h2>OFF</h2>
-          <h3>BYPASS</h3>
-          <h4>HMI</h4>
-          <h5>SECURED</h5>
+          <h2 id="statusoff">OFF</h2>
+          <h3 id="statusbypass">BYPASS</h3>
+          <h4 id="statusihm">HMI</h4>
+          <h5 id="statussecured">SECURED</h5>
         </div>
       </div>
+    
     </div>
+    
   </body>
 </html>
